@@ -1,0 +1,15 @@
+---
+import { integrantes, fuentes, meta } from '../data/content.js';
+---
+<section class="ch creditos" id="creditos" data-ch="5">
+  <div class="stage">
+    <div class="creditos__inner">
+      <div class="eyebrow">Integrantes</div>
+      <h2 class="h-display" data-split>{meta.grupo}</h2>
+      <ul class="names" id="names">{integrantes.map((n) => <li>{n}</li>)}</ul>
+      <div class="fuentes"><span class="mono">Fuentes</span>{fuentes.map((f) => <span>{f}</span>)}</div>
+      <button class="back-top" data-goto="inicio">↑ Volver al inicio</button>
+      <div class="colophon">{meta.titulo} · {meta.fecha}</div>
+    </div>
+  </div>
+</section>

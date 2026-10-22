@@ -1,0 +1,17 @@
+{
+  "name": "imperio-romano",
+  "type": "module",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build",
+    "preview": "astro preview"
+  },
+  "dependencies": {
+    "astro": "5.14.1",
+    "gsap": "3.12.5",
+    "lenis": "1.1.20",
+    "three": "0.170.0"
+  }
+}

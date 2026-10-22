@@ -1,0 +1,40 @@
+---
+import { marcas, emperadores, judea } from '../data/content.js';
+const N = marcas.length - 1;
+const pct = (i) => `${(i / N) * 100}%`;
+---
+<section class="ch zoom" id="zoom" data-ch="3">
+  <div class="stage">
+    <header class="ch-head">
+      <div class="eyebrow">Zoom · La época del Nuevo Testamento</div>
+      <h2 class="h-display" data-split>Roma y Judea, 63 a.C. – 96 d.C.</h2>
+      <p class="lead">Fechas clave de Roma y de Judea, de la conquista de Jerusalén a Domiciano</p>
+    </header>
+    <div class="zoom__now">
+      <div class="zoom__date" id="z-date">63 a.C.<small>Fecha clave 01 / 17</small></div>
+      <div class="zoom__cards">
+        <div class="card"><span class="card__k">Emperador de Roma</span><span class="card__v" id="z-emp">República</span><span class="card__s" id="z-emp-s">63–27 a.C.</span></div>
+        <div class="card card--judea" id="z-jud-card"><span class="card__k">Judea · hechos y gobernantes</span><span class="card__v" id="z-jud">Conquista de Jerusalén</span><span class="card__s" id="z-jud-s">Judea bajo el mando romano</span></div>
+      </div>
+    </div>
+    <div class="lanes">
+      <div class="lane__label">Emperadores<small>de Roma</small></div>
+      <div class="lanes__body" id="lanes">
+        <div class="lane">
+          {emperadores.map((e) => (
+            <div class={`emp${e.nombre === 'República' ? ' emp--rep' : ''}${e.corto ? ' emp--gov' : ''}`} style={`left:${pct(e.desde)};width:${pct(e.hasta - e.desde)}`} data-desde={e.desde} data-hasta={e.hasta}><span>{e.corto ?? e.nombre}</span></div>
+          ))}
+        </div>
+        <div class="ticks">
+          {marcas.map((m, i) => (<div class="tick" style={`left:${pct(i)}`} data-i={i}><i></i>{m}</div>))}
+        </div>
+        <div class="lane" style="height:20px">
+          {judea.map((j) => (<div class={`ev${j.grave ? ' ev--grave' : ''}`} style={`left:${pct(j.marca)};width:calc(${pct(j.hasta - j.marca)} + 12px)`} data-desde={j.marca} data-hasta={j.hasta}></div>))}
+        </div>
+        <div class="playhead" id="playhead"></div>
+      </div>
+      <div class="lane__label">Judea<small>hechos y gobernantes</small></div>
+    </div>
+    <div class="foot-note">Cada marca es una fecha clave (escala no proporcional)</div>
+  </div>
+</section>

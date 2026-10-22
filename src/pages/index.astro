@@ -1,0 +1,31 @@
+---
+import Base from '../layouts/Base.astro';
+import Loader from '../components/Loader.astro';
+import Hud from '../components/Hud.astro';
+import Hero from '../components/Hero.astro';
+import Daniel from '../components/Daniel.astro';
+import Linea from '../components/Linea.astro';
+import Zoom from '../components/Zoom.astro';
+import Mapa from '../components/Mapa.astro';
+import Creditos from '../components/Creditos.astro';
+---
+<Base title="Imperio Romano" description="Mapa y línea del tiempo en los días del Nuevo Testamento · Grupo 4">
+  <Loader />
+  <canvas id="hall" aria-hidden="true"></canvas>
+  <div class="veil" aria-hidden="true"></div>
+  <div class="veil-dim" id="veil-dim" aria-hidden="true"></div>
+  <Hud />
+  <main id="main">
+    <Hero />
+    <Daniel />
+    <Linea />
+    <Zoom />
+    <Mapa />
+    <Creditos />
+  </main>
+  <div class="fog" id="fog" aria-hidden="true"></div>
+  <div class="grain" aria-hidden="true"></div>
+  <script>
+    import '../scripts/main.js';
+  </script>
+</Base>

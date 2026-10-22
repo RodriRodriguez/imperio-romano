@@ -1,0 +1,36 @@
+---
+import { reinos } from '../data/content.js';
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+---
+<section class="ch daniel" id="daniel" data-ch="1">
+  <div class="stage">
+    <div class="ch-num" aria-hidden="true">II</div>
+    <div class="statue" id="statue">
+      <div class="statue__img" id="statue-img" style={`background-image:url(${base}/assets/daniel2.jpg)`} role="img" aria-label="Ilustración de la estatua de Daniel 2 aportada por el grupo"></div>
+      <div class="statue__scan" id="statue-scan"></div>
+      <div class="statue__tag" id="statue-tag">Daniel 2 · La estatua</div>
+    </div>
+    <div class="daniel__copy">
+      <div class="metal-word" id="metal-word" aria-hidden="true">ORO</div>
+      <header class="ch-head">
+        <div class="eyebrow">Profecía · Daniel 2</div>
+        <h2 class="h-display" data-split>Roma en la profecía de Daniel</h2>
+        <p class="lead">La estatua de los imperios mundiales. Cada parte representa un imperio que dominó la tierra de Israel.</p>
+      </header>
+      <ol class="reinos" id="reinos">
+        {reinos.map((r, i) => (
+          <li class={`reino${i === 0 ? ' is-active' : ''}${r.roma ? ' is-roma' : ''}`} style={`--tono:${r.tono}`} data-i={i}>
+            <span class="reino__chip"></span>
+            <div>
+              <div class="reino__parte">{r.parte}</div>
+              <div class="reino__imperio">{r.imperio}</div>
+              <p class="reino__cita">“{r.cita}”</p>
+            </div>
+            <div class="reino__ref">{r.fecha && <>{r.fecha}<br /></>}{r.ref}</div>
+          </li>
+        ))}
+      </ol>
+      <div class="foot-note">Interpretación tradicional de Daniel 2 (Unger, Manual Bíblico) · Imagen: ilustración aportada por el grupo</div>
+    </div>
+  </div>
+</section>

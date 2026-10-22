@@ -1,0 +1,32 @@
+---
+import { eras, hitos } from '../data/content.js';
+---
+<section class="ch linea" id="linea" data-ch="2">
+  <div class="stage">
+    <div class="linea__head">
+      <header class="ch-head">
+        <div class="eyebrow">Línea del tiempo</div>
+        <h2 class="h-display" data-split>2.200 años de Roma</h2>
+        <p class="lead">De la fundación de la ciudad a la caída de Constantinopla</p>
+      </header>
+      <div class="linea__legend"><span><i class="dot-roma"></i>Historia de Roma</span><span><i class="cross"></i>Historia bíblica y cristiana</span></div>
+    </div>
+    <div class="year-big" id="year-big" aria-hidden="true">753<small>a.C.</small></div>
+    <div class="track-wrap">
+      <div class="track" id="track">
+        <div class="band" id="band">
+          {eras.map((e) => (<div class="band__era" style={`--c:${e.color}`} data-desde={e.desde} data-hasta={e.hasta} data-peso={e.peso}><span>{e.nombre}</span></div>))}
+        </div>
+        <div class="nt-box" id="nt-box"></div>
+        {hitos.map((h) => (
+          <div class={`hito hito--${h.lado}${h.caida ? ' hito--caida' : ''}${h.nt ? ' hito--nt' : ''}`} data-anio={h.anio}>
+            <span class="hito__pin"></span>
+            <span class="hito__fecha">{h.fecha}</span>
+            <span class="hito__titulo">{h.titulo}</span>
+            {h.nt && <span class="hito__ver">Ver detalle abajo ↓</span>}
+          </div>
+        ))}
+      </div>
+    </div>
+  </div>
+</section>

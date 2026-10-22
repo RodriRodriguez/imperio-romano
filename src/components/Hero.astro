@@ -1,0 +1,21 @@
+---
+import { meta } from '../data/content.js';
+---
+<section class="ch hero" id="inicio" data-ch="0">
+  <div class="stage">
+    <div class="hero__inner" id="hero-inner">
+      <div class="reticle"><svg viewBox="0 0 54 54"><circle cx="27" cy="27" r="26" class="spin"></circle><circle cx="27" cy="27" r="9"></circle><circle cx="27" cy="27" r="2" style="fill:var(--gold)"></circle></svg></div>
+      <div class="eyebrow">{meta.grupo} · {meta.fecha}</div>
+      <h1 class="h-display hero__title" data-split><span class="line">Imperio</span><span class="line">Romano</span></h1>
+      <p class="lead">{meta.subtitulo}</p>
+    </div>
+    <div class="hero__caption" id="hero-cap1" aria-hidden="true">
+      <div>
+        <div class="eyebrow" style="justify-content:center">Roma · Jerusalén</div>
+        <p class="h-display">De la Ciudad Eterna<br />a la Tierra Santa</p>
+        <p class="lead">{meta.pie}</p>
+      </div>
+    </div>
+    <div class="scroll-hint" id="scroll-hint"><span>Desplazá</span><i></i></div>
+  </div>
+</section>

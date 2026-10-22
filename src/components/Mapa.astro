@@ -1,0 +1,30 @@
+---
+import mapSvg from '../assets/imperio-117.svg?raw';
+import { mapaPasos } from '../data/content.js';
+---
+<section class="ch mapa" id="mapa" data-ch="4">
+  <div class="stage">
+    <div class="ch-num" aria-hidden="true">V</div>
+    <div class="map-frame" id="map-frame">
+      <Fragment set:html={mapSvg} />
+      <div class="scale"><span>0 — 500 km</span><i></i></div>
+    </div>
+    <aside class="map-panel">
+      <div class="eyebrow">Mapa</div>
+      <div class="map-steps" id="map-steps">{mapaPasos.map(() => <i></i>)}</div>
+      <div class="map-panel__rango" id="m-rango">{mapaPasos[0].rango}</div>
+      <h2 class="map-panel__titulo" id="m-titulo">{mapaPasos[0].titulo}</h2>
+      <p class="map-panel__texto" id="m-texto">{mapaPasos[0].texto}</p>
+      <ul class="legend" id="legend">
+        <li data-l="1"><i style="--c:#8e2a1f"></i><span>Monarquía<em>753–509 a.C.</em></span></li>
+        <li data-l="2"><i style="--c:#c4532a"></i><span>República temprana<em>509–264 a.C.</em></span></li>
+        <li data-l="3"><i style="--c:#d99a2b"></i><span>Guerras púnicas<em>264–133 a.C.</em></span></li>
+        <li data-l="4"><i style="--c:#b9975b"></i><span>Fin de la República<em>133–27 a.C.</em></span></li>
+        <li data-l="5"><i style="--c:#5e8c5a"></i><span>Alto Imperio<em>27 a.C.–117 d.C.</em></span></li>
+        <li data-l="6"><i class="dash"></i><span>Bajo Imperio<em>395 d.C. · división</em></span></li>
+        <li data-l="7"><i class="dia"></i><span>Imperio de Oriente<em>476–1453 d.C.</em></span></li>
+      </ul>
+      <div class="foot-note">Límites: Ancient World Mapping Center (117 d.C.) · Colores por etapa: aproximados · Pfeiffer, caps. 19–20; Bruce, caps. 23–28</div>
+    </aside>
+  </div>
+</section>

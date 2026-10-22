@@ -1,0 +1,25 @@
+---
+import { capitulos, meta } from '../data/content.js';
+---
+<div class="hud" id="hud">
+  <div class="hud__top">
+    <a class="brand" href="#inicio" data-goto="inicio">
+      <span class="brand__mark">SPQR</span><span class="brand__sep"></span><span class="brand__sub">{meta.grupo} · {meta.fecha}</span>
+    </a>
+    <div class="pill" id="hud-pill"><span class="pill__dot"></span><span class="pill__num" id="hud-num">I</span><span class="pill__name" id="hud-name">{capitulos[0].nombre}</span></div>
+  </div>
+  <nav class="hud__nav" aria-label="Capítulos">
+    {capitulos.map((c, i) => (
+      <a href={`#${c.id}`} data-goto={c.id} class={i === 0 ? 'is-active' : ''}><span>{c.nombre}</span><b>{c.num}</b></a>
+    ))}
+  </nav>
+  <div class="hud__bottom">
+    <div class="coord"><span id="hud-lugar">{capitulos[0].lugar}</span><b id="hud-coord">{capitulos[0].coord}</b></div>
+    <div class="hud__ctrls">
+      <div class="progress"><span id="hud-pct">000</span>
+        <svg class="progress__ring" viewBox="0 0 38 38"><circle class="bg" cx="19" cy="19" r="16" pathLength="100"></circle><circle class="fg" id="hud-ring" cx="19" cy="19" r="16" pathLength="100"></circle></svg>
+      </div>
+      <button class="ctrl" id="sound" aria-label="Activar sonido ambiente" aria-pressed="false"><span class="bars"><i></i><i></i><i></i><i></i></span></button>
+    </div>
+  </div>
+</div>
